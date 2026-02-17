@@ -29,13 +29,13 @@ export async function POST(req:NextRequest) {
         }
         // console.log(tokenData)
         // console.log(process.env.TOKEN_SECRET)
-        const token = sign(tokenData, process.env.TOKEN_SECRET as string, { expiresIn: '1m' })
+        const token = sign(tokenData, process.env.TOKEN_SECRET as string, { expiresIn: '1h' })
         // console.log(token)
         const response=NextResponse.json({
             message:"login successfull",
             success:true,
         })
-        response.cookies.set("token",token,{httpOnly:true,sameSite: 'lax',path: '/',})
+        response.cookies.set("token",token,{httpOnly:true,sameSite: 'lax',path: '/',maxAge:3600})
         return response;
     } catch (err) {
         console.log(err);
