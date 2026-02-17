@@ -8,7 +8,7 @@ export async function connect() {
             throw new Error("MONGODB_URL environment variable is not defined");
         }
         mongoose.connect(mongoUrl);
-        console.log(mongoUrl);
+        // console.log(mongoUrl);
         const connection=mongoose.connection;
         connection.on('connected',()=>{
             console.log('mongodb connected successfully')

@@ -3,7 +3,9 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import Router, { useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { profile } from 'console'
+
+
+
 export default function page() {
   const router=useRouter()
   const [data,setdata]=useState('nothing')
