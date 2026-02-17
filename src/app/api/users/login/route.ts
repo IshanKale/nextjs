@@ -35,7 +35,7 @@ export async function POST(req:NextRequest) {
             message:"login successfull",
             success:true,
         })
-        response.cookies.set("token",token,{httpOnly:true,sameSite: 'lax',path: '/',})
+        response.cookies.set("token",token,{httpOnly:true,sameSite: 'lax',path: '/',maxAge:3600})
         return response;
     } catch (err) {
         console.log(err);
