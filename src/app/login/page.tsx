@@ -28,17 +28,12 @@ export default function (){
         try {
             setloading(true)
             const res=await axios.post('/api/users/login/',user)
-            if(res.status===400){
-                toast.error(res.data.error)
-            } 
-            else{
-                console.log(res)
-                toast.success("login successfull")
-                router.push(`/profile/`)
-            }
+            console.log(res)
+            toast.success("login successfull")
+            router.push(`/profile/`)
         } catch (error:any) {
             console.log("login failded",error)
-            toast.error(error.message)
+            toast.error(error.response?.data?.error || error.message)
         }finally{
             setloading(false)
         }
@@ -59,6 +54,7 @@ export default function (){
             />
             <button className="p-2 rounded border w-full" onClick={onlogin} disabled={disablebtn}>signup</button>
             <Link href="/signup"> visit signup page</Link>
+            <Link className="p-2 rounded border w-full bg-red-500" href="/forgotpassword">forgot password</Link>
         </div>
     )
 }

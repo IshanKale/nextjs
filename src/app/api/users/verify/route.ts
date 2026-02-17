@@ -7,7 +7,7 @@ export async function POST(request: NextRequest) {
         const reqBody = await request.json();
         const { email, id } = reqBody;
 
-        await writemail([email, "VERIFY", id]);
+        await writemail({email, emailtype: "VERIFY", userid: id});
         
         return NextResponse.json({ message: "Email sent successfully" });
     } catch (error: any) {
