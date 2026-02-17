@@ -1,6 +1,6 @@
 "use client"
 import axios from 'axios'
-import { useRouter }GHOST_OLD_FUNCTION_START_TOKEN
+import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 
 function page() {
