@@ -24,12 +24,12 @@ export async function writemail({email, emailtype, userid}:any) {
         })
     }
     const transporter = nodemailer.createTransport({
-        host: 'smtp.ethereal.email',
-        port: 587,
+        host: process.env.SMTP_HOST,
+        port: Number(process.env.SMTP_PORT),
         auth: {
-            user: 'kyler.lakin@ethereal.email',
-            pass: '29a36Z3GYfam71CkBA'
-        }
+            user: process.env.SMTP_USER,
+            pass: process.env.SMTP_PASS,
+        },
     });
     const info = await transporter.sendMail({
         from: '"Maddison Foo Koch" <maddison53@ethereal.email>',

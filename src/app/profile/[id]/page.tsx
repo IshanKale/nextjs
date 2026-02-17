@@ -18,8 +18,8 @@ function page({
 
   console.log(verified)
 
-  const sendmail=async (email:any)=>{
-    const res =await axios.post('/api/users/verify',{ email, id })
+  const sendmail=async ()=>{
+    const res =await axios.post('/api/users/verify',{ id ,email:'one@gmail.com'})
     setsend(true)
   }
 
@@ -30,7 +30,7 @@ function page({
         <button 
           className="px-4 py-2 bg-green-600 rounded disabled:opacity-50" 
           disabled={(send || verified)} 
-          onClick={() => sendmail("one@gmail.com")}
+          onClick={() => sendmail()}
         >
           verify mail
         </button>
