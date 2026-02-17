@@ -15,10 +15,14 @@ export default function page() {
     router.push('/signup')
   }
   const getuserDetails=async ()=>{
-    const res= await axios.get('/api/users/me')
-    console.log(res)
-    setdata(res.data.data.id)
-    setverified(res.data.data.isVerfied)
+    try {
+      const res= await axios.get('/api/users/me')
+      console.log(res)
+      setdata(res.data.data._id)
+      setverified(res.data.data.isVerfied)
+    } catch (error:any) {
+      router.push('/login')
+    }
   }
 
   return (

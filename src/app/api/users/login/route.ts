@@ -29,7 +29,7 @@ export async function POST(req:NextRequest) {
         }
         // console.log(tokenData)
         // console.log(process.env.TOKEN_SECRET)
-        const token = sign(tokenData, process.env.TOKEN_SECRET as string, { expiresIn: '1h' })
+        const token = sign(tokenData, process.env.TOKEN_SECRET as string, { expiresIn: 60 })
         // console.log(token)
         const response=NextResponse.json({
             message:"login successfull",

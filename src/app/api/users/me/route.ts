@@ -8,6 +8,9 @@ connect();
 export async function GET(request : NextRequest) {
     try {
         const user =await getDataFromToken(request)
+        if(user==="expired"){
+            return NextResponse.json({error:"token expired"},{status:400})
+        }
         console.log(user)
         const isfound = await User.findOne({_id:user.id}).select("-password")
         console.log(isfound)
